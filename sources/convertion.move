@@ -13,9 +13,9 @@ module convertion::convert_bases {
         };
 
         loop {
-            let remainder = n % base;
+            let remainder = n % (base as u64);
             vector::push_back(&mut digits, remainder as u8);
-            n = n / base;
+            n = n / (base as u64);
 
             if (n == 0) {
                 break;
