@@ -4,7 +4,7 @@ module convertion::convert_bases {
     use std::string;
     use std::vector;
 
-    public fun to_base10_to_(mut n: u64): string::String {
+    public fun from_base10_to_other_base(mut n: u64, base: u8): string::String {
         let mut digits = vector::empty<u8>();
 
     
@@ -13,9 +13,9 @@ module convertion::convert_bases {
         };
 
         loop {
-            let remainder = n % 4;
+            let remainder = n % base;
             vector::push_back(&mut digits, remainder as u8);
-            n = n / 4;
+            n = n / base;
 
             if (n == 0) {
                 break;
